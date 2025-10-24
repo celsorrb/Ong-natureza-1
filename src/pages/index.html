@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início | ONG Natureza - Guardiões do Futuro</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/Ong-natureza-1/src/styles/main.css">
-    
-    <meta name="description" content="Página inicial da ONG dedicada à proteção ambiental e projetos de sustentabilidade.">
+    <link rel="stylesheet" href="/Ong-natureza-1/src/styles/main.css"> 
 </head>
 <body class="bg-index">
     <header class="header">
-        <h1 class="header__title">ONG Natureza</h1>
+        <h1 class="header__title" style="position: absolute; width: 1px; height: 1px; overflow: hidden;">ONG Natureza</h1>
+        <div class="header__logo">
+            <picture>
+                <source srcset="/Ong-natureza-1/src/assets/images/logo.webp" type="image/webp">
+                <img 
+                    src="/Ong-natureza-1/src/assets/images/logo.png" 
+                    alt="Logo da ONG Natureza - Reflorestamento e Vida" 
+                    style="height: 40px; width: auto; display: block;"
+                >
+            </picture>
+        </div>
+        
         <nav class="nav" aria-label="Navegação Principal do Site">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html" aria-current="page">Início</a></li>
@@ -26,42 +33,72 @@
     </header>
 
     <main class="container">
+        <section class="section hero-section" aria-labelledby="hero-title">
+            <h2 id="hero-title">Preservar o Presente, Garantir o Futuro</h2>
+            <figure>
+                <picture>
+                    <source srcset="/Ong-natureza-1/src/assets/images/banner_hero_principal.webp" type="image/webp">
+                    <img 
+                        src="/Ong-natureza-1/src/assets/images/banner_hero_principal.jpg" 
+                        alt="Vista de uma floresta nativa com raios de sol e um caminho, simbolizando a missão da ONG." 
+                        loading="eager" 
+                        class="hero-image"
+                    >
+                </picture>
+                <figcaption>Juntos, restaurando o nosso lar.</figcaption>
+            </figure>
+        </section>
+
         <section class="section" aria-labelledby="quem-somos-title">
             <h2 id="quem-somos-title">Quem Somos? - Missão e Visão</h2>
             
-            <p style="font-style: italic; margin-bottom: 20px;">"Não herdamos a Terra de nossos pais; nós a pegamos emprestada de nossos filhos."</p>
-            
-            <div class="grid-projetos">
-                <article class="card">
-                    <h3>Missão</h3>
-                    <p>Contribuir para que as empresas e a sociedade sejam sustentáveis, preservando o mundo para futuras gerações através de ações locais.</p>
-                </article>
+            <div class="content-with-image">
+                <div class="text-content">
+                    <p style="font-style: italic; margin-bottom: 20px;">"Não herdamos a Terra de nossos pais; nós a pegamos emprestada de nossos filhos."</p>
+                    
+                    <div class="grid-projetos">
+                        <article class="card">
+                            <h3>Missão</h3>
+                            <p>Contribuir para que as empresas e a sociedade sejam sustentáveis, preservando o mundo para futuras gerações através de ações locais e conscientização global.</p>
+                        </article>
 
-                <article class="card">
-                    <h3>Visão</h3>
-                    <p>Ser o farol da sustentabilidade, promovendo a harmonia entre o desenvolvimento humano e a integridade da natureza.</p>
-                </article>
+                        <article class="card">
+                            <h3>Visão</h3>
+                            <p>Ser o farol da sustentabilidade, promovendo a harmonia entre o desenvolvimento humano e a integridade da natureza, sendo referência em recuperação de biomas nativos.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <figure class="image-content">
+                    <picture>
+                        <source srcset="/Ong-natureza-1/src/assets/images/missao_colaboracao.webp" type="image/webp">
+                        <img 
+                            src="/Ong-natureza-1/src/assets/images/missao_colaboracao.jpg" 
+                            alt="Voluntários sorrindo e trabalhando juntos em uma causa ambiental." 
+                            loading="lazy" 
+                            class="round-image"
+                        >
+                    </picture>
+                    <figcaption>Equipe de Guardiões da Natureza.</figcaption>
+                </figure>
             </div>
-            
-            <h2 style="margin-top: 40px;">Fale Conosco</h2>
-            <address>
+        </section>
+
+        <section class="section" aria-labelledby="fale-conosco-title">
+            <h2 id="fale-conosco-title">Fale Conosco</h2>
+            <div class="fale-conosco-box">
                 <p><strong>Escritório Central:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
                 <p><strong>Telefone:</strong> (XX) 99999-9999</p>
                 <p><strong>E-mail:</strong> contato@ongnatureza.org.br</p>
-            </address>
+                <a href="projetos.html" class="btn">Ver Nossos Projetos &rarr;</a>
+            </div>
         </section>
-
-        <div class="main-actions">
-            <a href="projetos.html" class="btn" aria-label="Ver nossos projetos e como se juntar a nós">Ver Nossos Projetos &rarr;</a>
-        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 ONG Natureza. Todos os direitos reservados.</p>
+    <footer class="footer">
+        <p>&copy; 2024 ONG Natureza. Todos os direitos reservados. | Arquitetura por Google AI Plus.</p>
     </footer>
     
     <script src="/Ong-natureza-1/src/scripts/app.js"></script>
 </body>
-
 </html>
-
