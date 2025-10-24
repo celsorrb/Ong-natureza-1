@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('volunteer-form');
     const submitBtn = document.getElementById('submit-btn');
 
-    // Verifica se o formulário e o botão existem antes de continuar (pode não existir em index.html)
+    // Verifica se o formulário e o botão existem antes de continuar (pode não existir em index.html/projetos.html)
     if (!form || !submitBtn) {
         return; 
     }
@@ -37,11 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validação adicional para o email (formato básico)
         const emailInput = document.getElementById('email');
-        if (emailInput && !validateEmail(emailInput.value)) {
+        // Apenas valida se o campo existe e se o valor não está vazio antes de testar a regex
+        if (emailInput && emailInput.value.trim() !== '' && !validateEmail(emailInput.value)) {
             emailInput.classList.add('is-invalid');
             isFormValid = false;
         } else if (emailInput) {
-            emailInput.classList.remove('is-invalid');
+            // Se estiver vazio (e a validação acima já o marcou como inválido) ou se estiver correto
+            // Apenas remove a classe de inválido se o formulário geral ainda for válido
+            if (emailInput.value.trim() !== '' && validateEmail(emailInput.value)) {
+                 emailInput.classList.remove('is-invalid');
+            }
         }
 
         return isFormValid;
@@ -72,6 +77,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Monitora eventos de digitação/mudança
         input.addEventListener('input', toggleSubmitButton);
         input.addEventListener('change', toggleSubmitButton);
+    });
+
+    // Intercepta o envio do formulário para evitar o erro 405 e dar um feedback
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio real do formulário
+        
+        if (validateForm()) {
+            // Se for válido (passou pela validação JS), dá o feedback de sucesso
+            submitBtn.textContent = 'Obrigado por se cadastrar!';
+            submitBtn.style.backgroundColor = '#6AA84F'; // Verde claro para sucesso
+            
+            // Opcional: Desabilitar os campos após o "envio" virtual
+            requiredInputs.forEach(input => input.setAttribute('disabled', 'disabled'));
+            // Desabilitar o botão novamente
+            submitBtn.setAttribute('disabled', 'disabled');
+        }
     });
 
     // Chama a função uma vez no carregamento para definir o estado inicial do botão
