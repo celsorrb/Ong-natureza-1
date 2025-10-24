@@ -222,22 +222,23 @@ h2 {
 }
 
 
-/* ===============================
-   AJUSTES CSS PARA AS NOVAS IMAGENS E LAYOUTS
-   (ADICIONADO NESTA ETAPA)
-   =============================== */
+/* ======================================================
+   AJUSTES CSS PARA AS NOVAS IMAGENS E LAYOUTS (Desktop/Mobile)
+   CORRIGIDO PARA MELHORAR O LAYOUT E AJUSTAR AS IMAGENS
+   ====================================================== */
 
 /* 1. Imagem do Banner Hero (index.html) */
 .hero-section {
-    text-align: center; /* Centraliza a imagem e o título na seção hero */
+    text-align: center; 
 }
 .hero-image {
+    /* Garante que a imagem se ajusta à largura, sem esticar além do seu tamanho */
     width: 100%;
-    max-width: 1400px; /* Limita a largura máxima no desktop */
+    max-width: 100%; 
     height: auto;
     border-radius: 8px;
     margin-top: 15px;
-    display: block; /* Garante que a imagem se comporta como bloco */
+    display: block; 
 }
 .hero-section figcaption {
     font-style: italic;
@@ -251,31 +252,36 @@ h2 {
     display: flex;
     gap: 40px;
     align-items: flex-start; /* Alinha o conteúdo ao topo */
-    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    flex-wrap: wrap; 
     margin-top: 20px;
 }
 .content-with-image .text-content {
-    flex: 1 1 50%; /* Ocupa metade do espaço */
-    min-width: 300px; /* Garantia de tamanho mínimo */
+    /* Ocupa a maior parte do espaço no desktop (aprox. 55%) */
+    flex: 1 1 55%; 
+    min-width: 300px; 
 }
 .content-with-image .image-content {
-    flex: 0 0 350px; /* Largura fixa para a imagem lateral no desktop */
+    /* A imagem lateral tem um limite de 350px no desktop */
+    flex: 1 1 350px; 
+    max-width: 350px; 
     text-align: center;
 }
 .round-image {
+    /* Garante que a imagem se adapta ao seu container e não fica esmagada */
     width: 100%;
     height: auto;
-    max-width: 350px;
-    border-radius: 8px; /* Borda leve para o estilo */
+    /* max-width: 350px; REMOVIDO pois o container já limita */
+    border-radius: 8px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: block;
     margin: 0 auto;
 }
-/* No mobile, as imagens laterais ocupam 100% da largura */
+/* Mobile: Imagem no topo e com largura total */
 @media (max-width: 768px) {
     .content-with-image .image-content {
         flex: 1 1 100%;
-        order: -1; /* Coloca a imagem no topo da seção no mobile */
+        max-width: 100%;
+        order: -1; 
     }
 }
 
@@ -305,12 +311,13 @@ h2 {
     flex: 1 1 50%;
 }
 .donation-container .donation-image {
-    flex: 0 0 300px; /* Largura da imagem */
-    /* Garante que a imagem se mantém à direita no desktop */
+    /* Imagem de 300px no desktop */
+    flex: 0 0 300px; 
     margin-left: auto; 
 }
 @media (max-width: 768px) {
     .donation-container .donation-image {
+        /* Imagem de 100% no mobile */
         flex: 1 1 100%;
         order: -1;
         margin-left: 0;
