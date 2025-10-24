@@ -54,8 +54,8 @@ body {
     overflow-x: hidden; 
 }
 
-/* DEGRADÊ RESTAURADO E APLICADO A TODAS AS CLASSES DE BODY */
-.bg-index, .bg-projetos, .bg-cadastro {
+/* DEGRADÊ RESTAURADO: VERDE ESCURO (TOPO) -> MARROM TERRA (MEIO) -> NEUTRO (RODAPÉ) */
+.bg-index {
     background-color: var(--color-neutral-light); /* Fallback */
     background-image: linear-gradient(to bottom, 
         var(--color-primary) 0%, 
