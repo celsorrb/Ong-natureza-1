@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | ONG Natureza - Voluntário</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="/Ong-natureza-1/src/styles/main.css">
-    
-    <meta name="description" content="Formulário de cadastro complexo para novos voluntários da ONG com validação HTML5 e máscaras dinâmicas.">
 </head>
-<body class="bg-cadastro"> <header class="header">
-        <h1 class="header__title">ONG Natureza</h1>
+<body class="bg-cadastro">
+    <header class="header">
+        <h1 class="header__title" style="position: absolute; width: 1px; height: 1px; overflow: hidden;">ONG Natureza</h1>
+        <div class="header__logo">
+            <picture>
+                <source srcset="/Ong-natureza-1/src/assets/images/logo.webp" type="image/webp">
+                <img 
+                    src="/Ong-natureza-1/src/assets/images/logo.png" 
+                    alt="Logo da ONG Natureza - Reflorestamento e Vida" 
+                    style="height: 40px; width: auto; display: block;"
+                >
+            </picture>
+        </div>
+        
         <nav class="nav" aria-label="Navegação Principal do Site">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html">Início</a></li>
@@ -27,67 +35,64 @@
     <main class="container">
         <section class="section" aria-labelledby="cadastro-title">
             <h2 id="cadastro-title">Visão e Objetivos: Tornar-se um Voluntário</h2>
-            <p>Seu objetivo se alinha ao nosso? Preencha o formulário e comece a fazer a diferença. Todos os campos com * são validados dinamicamente.</p>
+            <p>Seu objetivo se alinha ao nosso? Preencha o formulário e comece a fazer a diferença.</p>
+
+            <figure style="text-align: center; margin-bottom: 25px;">
+                <picture>
+                    <source srcset="/Ong-natureza-1/src/assets/images/cadastro_pesquisa.webp" type="image/webp">
+                    <img 
+                        src="/Ong-natureza-1/src/assets/images/cadastro_pesquisa.jpg" 
+                        alt="Cientista monitorando flora em ambiente de floresta, demonstrando a seriedade da causa." 
+                        loading="lazy" 
+                        style="max-width: 100%; height: auto; border-radius: 8px;"
+                    >
+                </picture>
+                <figcaption style="font-style: italic; font-size: 0.9em; margin-top: 5px;">Seja a mudança que o planeta precisa.</figcaption>
+            </figure>
 
             <form id="volunteer-form" action="#" method="POST" novalidate>
                 
                 <fieldset class="form-group-set">
                     <legend>Dados Pessoais *</legend>
-
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required minlength="3">
-                        <span class="error-message" aria-live="polite"></span>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
-                        <span class="error-message" aria-live="polite"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" name="cpf" placeholder="999.999.999-99" required maxlength="14" data-mask-type="cpf">
-                        <span class="error-message" aria-live="polite"></span>
+                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) 9XXXX-XXXX" required maxlength="15" data-mask-type="phone">
-                        <span class="error-message" aria-live="polite"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="data-nasc">Data de Nascimento</label>
-                        <input type="date" id="data-nasc" name="data_nascimento" required>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) 9XXXX-XXXX">
                     </div>
                 </fieldset>
 
                 <fieldset class="form-group-set" style="margin-top: 20px;">
                     <legend>Endereço</legend>
-
                     <div class="form-group">
                         <label for="cep">CEP</label>
-                        <input type="text" id="cep" name="cep" placeholder="99999-999" required maxlength="9" data-mask-type="cep">
-                        <span class="error-message" aria-live="polite"></span>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000">
                     </div>
 
                     <div class="form-group">
-                        <label for="endereco">Endereço (Rua, Número e Bairro)</label>
-                        <input type="text" id="endereco" name="endereco" placeholder="Rua, Av, Número e Bairro" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cidade">Cidade</label>
-                        <input type="text" id="cidade" name="cidade" readonly placeholder="Preenchimento automático via CEP" aria-live="assertive">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <input type="text" id="estado" name="estado" readonly placeholder="Preenchimento automático via CEP" aria-live="assertive">
+                        <label for="cidade">Cidade/Estado</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo/SP">
                     </div>
                 </fieldset>
+                
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="interesse">Área de Interesse *</label>
+                    <select id="interesse" name="interesse" required aria-required="true">
+                        <option value="">Selecione a área</option>
+                        <option value="reflorestamento">Reflorestamento e Plantio</option>
+                        <option value="educacao">Educação Ambiental</option>
+                        <option value="pesquisa">Pesquisa e Monitoramento</option>
+                        <option value="administrativo">Administrativo/Marketing</option>
+                    </select>
+                </div>
                 
                 <details role="group" class="details-info" style="margin-top: 20px;">
                     <summary>Clique para ler nossa Política de Privacidade</summary>
@@ -98,17 +103,16 @@
             </form>
         </section>
         
-        <div class="main-actions">
-            <a href="index.html" class="btn" aria-label="Voltar para a página inicial" style="background-color: var(--color-secondary-dark); color: white;">&larr; Voltar para Início</a>
-        </div>
+        <section class="section main-actions" aria-labelledby="contato-title">
+            <h2 id="contato-title">Ainda tem dúvidas?</h2>
+            <p>Entre em contato conosco por e-mail ou telefone e tire todas as suas dúvidas sobre o trabalho voluntário e doações.</p>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 ONG Natureza. Todos os direitos reservados.</p>
+    <footer class="footer">
+        <p>&copy; 2024 ONG Natureza. Todos os direitos reservados. | Arquitetura por Google AI Plus.</p>
     </footer>
     
     <script src="/Ong-natureza-1/src/scripts/app.js"></script>
 </body>
-
 </html>
-
