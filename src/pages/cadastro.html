@@ -20,67 +20,76 @@
             >
         </div>
         
-        <input type="checkbox" id="nav-toggle" class="nav__toggle">
-        <label for="nav-toggle" class="nav__hamburguer" aria-label="Abrir menu de navegação">☰</label>
-
         <nav class="nav" aria-label="Navegação Principal do Site">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html">Início</a></li>
                 <li class="nav__item"><a href="projetos.html">Projetos Sociais</a></li>
                 <li class="nav__item"><a href="cadastro.html" aria-current="page">Seja Voluntário</a></li>
-                <li class="nav__item"><a href="projetos.html">Seja um Doador</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
         <section class="section" aria-labelledby="cadastro-title">
-            <h2 id="cadastro-title">Cadastre-se e Faça a Diferença</h2>
-            <p>Preencha o formulário para se juntar à nossa equipe de Guardiões da Natureza. Sua paixão nos move!</p>
-            
-            <figure style="margin-bottom: var(--space-xl);">
+            <h2 id="cadastro-title">Visão e Objetivos: Tornar-se um Voluntário</h2>
+            <p>Seu objetivo se alinha ao nosso? Preencha o formulário e comece a fazer a diferença.</p>
+
+            <figure style="text-align: center; margin-bottom: 25px;">
                 <picture>
                     <source srcset="/Ong-natureza-1/src/assets/images/cadastro_pesquisa.webp" type="image/webp">
                     <img 
                         src="/Ong-natureza-1/src/assets/images/cadastro_pesquisa.jpg" 
-                        alt="Voluntários fazendo pesquisa e coleta de dados em campo, demonstrando engajamento." 
+                        alt="Cientista monitorando flora em ambiente de floresta, demonstrando a seriedade da causa." 
                         loading="lazy" 
-                        class="image-center-section"
+                        style="max-width: 100%; height: auto; border-radius: 8px;"
                     >
                 </picture>
-                <figcaption style="text-align: center;">Mãos na terra, futuro na mente.</figcaption>
+                <figcaption style="font-style: italic; font-size: 0.9em; margin-top: 5px;">Seja a mudança que o planeta precisa.</figcaption>
             </figure>
 
-            <div class="alert" id="success-alert" role="alert" aria-live="assertive">
-                Obrigado por se cadastrar! Sua inscrição foi recebida com sucesso.
-            </div>
-
-            <form id="volunteer-form">
+            <form id="volunteer-form" action="" method="GET" novalidate>
+                
                 <fieldset class="form-group-set">
-                    <legend>Informações Pessoais</legend>
+                    <legend>Dados Pessoais *</legend>
                     <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" required placeholder="Seu nome completo" aria-required="true">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required aria-required="true">
                     </div>
+
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" aria-required="true">
+                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) 99999-9999">
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group-set" style="margin-top: 20px;">
+                    <legend>Endereço</legend>
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade/Estado</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo/SP">
                     </div>
                 </fieldset>
                 
-                <fieldset class="form-group-set">
-                    <legend>Interesses</legend>
-                    <div class="form-group">
-                        <label for="area">Área de Interesse</label>
-                        <select id="area" name="area" required aria-required="true">
-                            <option value="">Selecione uma área</option>
-                            <option value="reflorestamento">Reflorestamento e Plantio</option>
-                            <option value="educacao">Educação Ambiental</option>
-                            <option value="pesquisa">Pesquisa e Monitoramento</option>
-                            <option value="administrativo">Administrativo/Marketing</option>
-                        </select>
-                    </div>
-                </fieldset>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="interesse">Área de Interesse *</label>
+                    <select id="interesse" name="interesse" required aria-required="true">
+                        <option value="">Selecione a área</option>
+                        <option value="reflorestamento">Reflorestamento e Plantio</option>
+                        <option value="educacao">Educação Ambiental</option>
+                        <option value="pesquisa">Pesquisa e Monitoramento</option>
+                        <option value="administrativo">Administrativo/Marketing</option>
+                    </select>
+                </div>
                 
                 <details role="group" class="details-info" style="margin-top: 20px;">
                     <summary>Clique para ler nossa Política de Privacidade</summary>
