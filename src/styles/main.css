@@ -1,221 +1,318 @@
-/*
- * main.css - Estilos Principais e Design System
- * Arquitetura: src/styles/
- */
-
-/* ========================================================= */
-/* 1. VARIÁVEIS CSS (Design System) */
-/* ========================================================= */
+/* ===============================
+   VARIÁVEIS (PALETA DE CORES)
+   =============================== */
 :root {
-    /* Paleta Principal e Degrade Base */
-    --color-primary-dark: #1A5353; /* Verde Petróleo (Início Degrade) */
-    --color-secondary-dark: #5C4033; /* Marrom Sépia (Fim Degrade) */
-    
-    /* Cores Secundárias (Fundo Suave e Acento) */
-    --color-petroleo: #1A5353;
-    --color-areia: #E0D8B0; /* Bege/Cáqui (Fundo Claro) */
-    --color-sol-suave: #FFFFCC; /* Amarelo Cítrico muito suave */
-    
-    /* Acentos e Texto */
-    --color-accent: #70B230; /* Verde Limão (Destaque) */
-    --color-text-dark: #0A1931; /* Azul Marinho (Texto principal) */
-    --color-light: #E0D8B0; /* Bege/Cáqui (Texto em fundo escuro) */
-    --color-surface: #FFFFFF; /* Fundo do container */
-
-    /* Espaçamento e Tipografia */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 40px;
-    
-    --font-family-base: 'Arial', sans-serif;
-    --font-family-title: 'Quicksand', sans-serif;
+    --color-dark-blue: #0A1C2A;
+    --color-dark-green: #1F453B;
+    --color-medium-green: #38761D;
+    --color-light-green: #6AA84F;
+    --color-light-yellow: #f1f2e9; 
+    --color-white: #FFFFFF;
+    --color-black: #333333;
+    --color-border: #CCCCCC;
+    --font-family-base: 'Quicksand', sans-serif;
 }
 
-/* ========================================================= */
-/* 2. ESTILOS BASE E LAYOUT */
-/* ========================================================= */
-
-/* Base Reset e Corpo */
+/* ===============================
+   RESET E ESTILOS GERAIS
+   =============================== */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     font-family: var(--font-family-base);
-    color: var(--color-text-dark);
     line-height: 1.6;
-    min-height: 100vh;
+    color: var(--color-black);
+    background-color: var(--color-light-yellow);
 }
 
-/* Degrades Aplicados via Classe no <body> */
-.bg-index {
-    background: linear-gradient(to bottom, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
-    background-attachment: fixed;
-}
-.bg-projetos {
-    background: linear-gradient(to bottom, var(--color-petroleo) 0%, var(--color-areia) 100%);
-    background-attachment: fixed;
-}
-.bg-cadastro {
-    background: linear-gradient(to bottom, var(--color-sol-suave) 0%, var(--color-areia) 100%);
-    background-attachment: fixed;
-}
-
-
-/* Sistema de Layout Principal */
 .container {
-    width: 90%;
-    max-width: 1280px;
-    margin: var(--spacing-lg) auto;
-    padding: var(--spacing-lg);
-    background-color: var(--color-surface);
-    border-radius: var(--spacing-sm);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Header (Navegação Consistente) */
+h1, h2, h3 {
+    color: var(--color-dark-green);
+    margin-bottom: 10px;
+}
+
+h2 {
+    border-bottom: 2px solid var(--color-light-green);
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+.section {
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+/* ===============================
+   HEADER E NAVEGAÇÃO
+   =============================== */
 .header {
-    background-color: var(--color-primary-dark);
-    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-dark-green);
+    color: var(--color-white);
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.header__title {
-    color: var(--color-light);
-    font-family: var(--font-family-title);
-    font-size: 1.8em;
+/* Logo */
+.header__logo {
+    display: flex;
+    align-items: center;
+    height: 60px; /* Ajusta a altura da área do logo */
+}
+.header__logo img {
+    height: 40px; /* Tamanho da imagem do logo */
+    width: auto; 
+    display: block;
 }
 
+/* Navegação */
 .nav__list {
     list-style: none;
-    display: flex; 
+    display: flex;
+    gap: 20px;
 }
-
 .nav__item a {
-    color: var(--color-light);
+    color: var(--color-white);
     text-decoration: none;
-    padding: var(--spacing-sm) var(--spacing-md);
-    margin-left: var(--spacing-sm);
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
     transition: background-color 0.3s;
-    border-radius: var(--spacing-xs);
+}
+.nav__item a:hover,
+.nav__item a[aria-current="page"] {
+    background-color: var(--color-medium-green);
+    color: var(--color-light-yellow);
 }
 
-.nav__item a:hover {
-    background-color: var(--color-accent);
-    color: var(--color-text-dark);
-}
-
-/* Tipografia Temática e Contraste */
-h2, h3 {
-    font-family: var(--font-family-title);
+/* ===============================
+   BOTÕES E DESTAQUES
+   =============================== */
+.btn {
+    display: inline-block;
+    background-color: var(--color-medium-green);
+    color: var(--color-white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
     font-weight: 700;
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-xs);
-    border-bottom: 2px solid var(--color-accent);
-    color: var(--color-secondary-dark); 
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: var(--color-dark-blue);
 }
 
-/* Outros Estilos de Componentes */
+.fale-conosco-box {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    margin-top: 20px;
+}
+.fale-conosco-box p {
+    margin-bottom: 15px;
+}
+
+/* ===============================
+   LAYOUT GRID (PROJETOS)
+   =============================== */
 .grid-projetos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    gap: 30px;
+    margin-top: 20px;
 }
 
 .card {
-    padding: var(--spacing-md);
-    border-radius: var(--spacing-xs);
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.card h3 {
+    color: var(--color-medium-green);
+    border-bottom: 1px solid var(--color-light-green);
+    padding-bottom: 5px;
+}
+.card p {
+    margin-top: 15px;
 }
 
-.btn {
-    display: inline-block;
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-accent);
-    color: var(--color-text-dark);
-    text-decoration: none;
-    border: none;
-    border-radius: var(--spacing-xs);
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
+/* ===============================
+   FORMULÁRIO (CADASTRO)
+   =============================== */
+#volunteer-form {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.main-actions {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg) 0;
-    margin-top: var(--spacing-lg);
-    border-top: 1px dashed var(--color-secondary-dark); 
+.form-group-set {
+    border: 1px solid var(--color-border);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.form-group-set legend {
+    color: var(--color-dark-green);
+    font-weight: 700;
+    padding: 0 10px;
 }
 
-/* Footer */
-footer {
-    background-color: var(--color-secondary-dark);
-    color: var(--color-light);
-    text-align: center;
-    padding: var(--spacing-md) 0;
-    margin-top: var(--spacing-xl);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-    }
-    .header__title {
-        margin-bottom: var(--spacing-md);
-    }
-    .nav__list {
-        flex-direction: column; 
-        width: 100%;
-        text-align: center;
-    }
-    .nav__item {
-        margin: var(--spacing-xs) 0;
-    }
-}
-
-/* Estilos de Formulário (Inclusão antecipada) */
 .form-group {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 15px;
 }
-
 .form-group label {
     display: block;
-    font-weight: bold;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-dark-green);
 }
-
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
-.form-group input[type="date"] {
+.form-group select {
     width: 100%;
-    padding: var(--spacing-sm);
-    border: 1px solid #ccc;
-    border-radius: var(--spacing-xs);
-    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-family-base);
 }
 
-.form-group input:read-only {
-    background-color: #eee;
-    cursor: not-allowed;
+.details-info {
+    background-color: var(--color-light-yellow);
+    border: 1px solid var(--color-light-green);
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+.details-info summary {
+    font-weight: 600;
+    color: var(--color-dark-blue);
 }
 
-.error-message {
-    color: red;
+/* ===============================
+   FOOTER
+   =============================== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    margin-top: 50px;
+}
+
+
+/* ===============================
+   AJUSTES CSS PARA AS NOVAS IMAGENS E LAYOUTS
+   (ADICIONADO NESTA ETAPA)
+   =============================== */
+
+/* 1. Imagem do Banner Hero (index.html) */
+.hero-section {
+    text-align: center; /* Centraliza a imagem e o título na seção hero */
+}
+.hero-image {
+    width: 100%;
+    max-width: 1400px; /* Limita a largura máxima no desktop */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: block; /* Garante que a imagem se comporta como bloco */
+}
+.hero-section figcaption {
+    font-style: italic;
     font-size: 0.9em;
+    margin-top: 5px;
+    color: var(--color-dark-green);
+}
+
+/* 2. Imagem da Seção Quem Somos (index.html) - Layout lado a lado */
+.content-with-image {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    margin-top: 20px;
+}
+.content-with-image .text-content {
+    flex: 1 1 50%; /* Ocupa metade do espaço */
+    min-width: 300px; /* Garantia de tamanho mínimo */
+}
+.content-with-image .image-content {
+    flex: 0 0 350px; /* Largura fixa para a imagem lateral no desktop */
+    text-align: center;
+}
+.round-image {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    border-radius: 8px; /* Borda leve para o estilo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: block;
-    margin-top: var(--spacing-xs);
+    margin: 0 auto;
+}
+/* No mobile, as imagens laterais ocupam 100% da largura */
+@media (max-width: 768px) {
+    .content-with-image .image-content {
+        flex: 1 1 100%;
+        order: -1; /* Coloca a imagem no topo da seção no mobile */
+    }
+}
+
+/* 3. Imagens dentro dos Cards (projetos.html) e cadastro.html */
+.card-image-half {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+/* 4. Imagem na Seção de Doação (projetos.html) */
+.destaque-ajuda {
+    background-color: var(--color-light-yellow); 
+    padding: 30px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-light-green);
+}
+
+.donation-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.donation-container .donation-text {
+    flex: 1 1 50%;
+}
+.donation-container .donation-image {
+    flex: 0 0 300px; /* Largura da imagem */
+    /* Garante que a imagem se mantém à direita no desktop */
+    margin-left: auto; 
+}
+@media (max-width: 768px) {
+    .donation-container .donation-image {
+        flex: 1 1 100%;
+        order: -1;
+        margin-left: 0;
+    }
 }
